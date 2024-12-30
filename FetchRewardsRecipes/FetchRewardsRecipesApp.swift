@@ -11,7 +11,7 @@ import SwiftUI
 struct FetchRewardsRecipesApp: App {
     var body: some Scene {
         WindowGroup {
-            RecipesView(viewModel: RecipeViewModel(dataService: DataService()))
+            RecipesView(viewModel: RecipesViewModel(dataService: DataService()))
         }
     }
 }

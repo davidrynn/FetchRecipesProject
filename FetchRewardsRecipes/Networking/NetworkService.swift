@@ -54,34 +54,3 @@ final class NetworkService: NetworkServicing {
     
     
 }
-
-/// Mock network service for testing and previews
-final class MockNetworkService: NetworkServicing {
-    
-    private lazy var decoder: JSONDecoder = {
-        let aDecoder = JSONDecoder()
-        return aDecoder
-    }()
-    
-    public var downloader = MockHTTPDataDownloader()
-    
-    public var responseTypeSelection: ResponseTypeSelection = .allRecipes
-    public var shouldFail: Bool = false
-    
-    func fetchDataModel<T: Decodable>(from url: URL) async throws -> T {
-        do {
-            return try decoder.decode(T.self, from: responseTypeSelection.data)
-        } catch {
-            throw FetchRecipeError.invalidData
-        }
-    }
-    
-    func fetchData(from url: URL) async throws -> Data {
-        if shouldFail {
-            throw FetchRecipeError.networkError
-        }
-        return responseTypeSelection.data
-    }
-    
-}
-

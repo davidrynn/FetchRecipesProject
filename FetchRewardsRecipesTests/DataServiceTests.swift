@@ -19,7 +19,7 @@ final class DataServiceTests: XCTestCase {
         networkService = NetworkService(downloader: downloader)
         sut = DataService(networkService: networkService)
     }
-
+    
     override func tearDown() {
         sut = nil
         networkService = nil
@@ -59,7 +59,7 @@ final class DataServiceTests: XCTestCase {
     
     func testRecipesFromURL_Success_Empty() async throws {
         // Given
-       // networkService.responseTypeSelection = .empty
+        // networkService.responseTypeSelection = .empty
         let expectation = [Recipe]()
         
         // When
@@ -99,5 +99,5 @@ final class DataServiceTests: XCTestCase {
         
         XCTFail( "Expected error not thrown")
     }
-
+    
 }

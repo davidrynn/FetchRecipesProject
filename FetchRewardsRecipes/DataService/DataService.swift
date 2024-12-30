@@ -22,7 +22,7 @@ protocol DataServicing {
 
 // This implementation of DataServicing uses `actor` to protect the `imageDataCache` property, ensuring
 // the cache is serialized. Cache is still vunerable, but handled with task/concurrency
-actor DataService: DataServicing {
+final actor DataService: DataServicing {
     private let networkService: NetworkServicing
     private let baseUrlString = "https://d3jbb8n5wk0qxi.cloudfront.net/"
     private let imageDataCache: NSCache<NSString, CacheEntryObject> = NSCache()

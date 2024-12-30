@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RecipesView: View {
     // MARK: Properties
-    @StateObject var viewModel: RecipeViewModel
+    @StateObject var viewModel: RecipesViewModel
     private let defaultVerticalSpacing: CGFloat = 16
     
     // MARK: Main body
@@ -68,7 +68,6 @@ extension RecipesView {
                 RecipeSummary(recipe: recipe, dataService: viewModel.dataService)
             }
         }
-      //  .listStyle(PlainListStyle())
     }
     
     var errorMessage: some View {
@@ -107,8 +106,8 @@ extension RecipesView {
 }
 
 #Preview {
-    let dataService = DataService(networkService: MockNetworkService())
-    let viewModel = RecipeViewModel(dataService: dataService)
+    let dataService = DataService(networkService: NetworkService(downloader: MockHTTPDataDownloader()))
+    let viewModel = RecipesViewModel(dataService: dataService)
     RecipesView(viewModel:viewModel)
 }
 

@@ -13,12 +13,12 @@ final class NetworkServiceTests: XCTestCase {
     var sut: NetworkService!
     var downloader: MockHTTPDataDownloader!
     let decoder: JSONDecoder = JSONDecoder()
-
+    
     override func setUp() {
         downloader = MockHTTPDataDownloader()
         sut = NetworkService(downloader: downloader)
     }
-
+    
     override func tearDown() {
         sut = nil
     }
@@ -27,7 +27,7 @@ final class NetworkServiceTests: XCTestCase {
         // Given
         let expectationContainer = try decoder.decode(Recipes.self, from: testData)
         let expectation = expectationContainer.recipes
-  
+        
         // When
         let recipesContainer: Recipes = try await sut.fetchDataModel(from: URL(string: allRecipesFullUrlString)!)
         let recipes: [Recipe] = recipesContainer.recipes
@@ -60,7 +60,7 @@ final class NetworkServiceTests: XCTestCase {
         // Given
         let expectationContainer = try decoder.decode(Recipes.self, from: emptyData)
         let expectation = expectationContainer.recipes
-  
+        
         // When
         let recipesContainer: Recipes = try await sut.fetchDataModel(from: URL(string: emptyFullUrlString)!)
         let recipes: [Recipe] = recipesContainer.recipes
@@ -73,7 +73,7 @@ final class NetworkServiceTests: XCTestCase {
     func testFetchData_Success() async throws {
         // Given
         let expectation = testData
-  
+        
         // When
         let data = try await sut.fetchData(from: URL(string: allRecipesFullUrlString)!)
         
@@ -95,12 +95,12 @@ final class NetworkServiceTests: XCTestCase {
     func testFetchData_Malformed() async throws {
         // Given
         let expectation = malformedData
-
+        
         // When
         let data = try await sut.fetchData(from: URL(string: malformedFullUrlString)!)
         
         // Then
         XCTAssertEqual(data, expectation)
     }
-
+    
 }

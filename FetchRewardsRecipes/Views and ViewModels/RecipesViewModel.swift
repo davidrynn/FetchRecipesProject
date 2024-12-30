@@ -7,9 +7,9 @@
 
 import Foundation
 
-final class RecipeViewModel: ObservableObject {
+final class RecipesViewModel: ObservableObject {
     // MARK: Public properties
-     let dataService: DataServicing
+    let dataService: DataServicing
     
     // MARK: Property wrappers
     @Published var loadingState: LoadingState = .loading
@@ -28,7 +28,7 @@ final class RecipeViewModel: ObservableObject {
             "No recipes"
         }
     }
-
+    
     // MARK: Initialization
     init(dataService: DataServicing) {
         self.dataService = dataService
@@ -41,14 +41,14 @@ final class RecipeViewModel: ObservableObject {
     @MainActor
     func loadRecipes() async {
         loadingState = .loading
-            do {
-                self.recipes = try await dataService.recipes(from: selectedEndpoint)
-                loadingState = self.recipes.isEmpty ? .empty : .loaded
-            } catch {
-                loadingState = .error
-                if let error = error as? FetchRecipeError {
-                    errorMessage = error.message
-                }
+        do {
+            self.recipes = try await dataService.recipes(from: selectedEndpoint)
+            loadingState = self.recipes.isEmpty ? .empty : .loaded
+        } catch {
+            loadingState = .error
+            if let error = error as? FetchRecipeError {
+                errorMessage = error.message
             }
+        }
     }
 }

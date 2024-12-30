@@ -30,12 +30,12 @@ struct RecipeSummary: View {
     
     var icon: some View {
         CacheableImage(viewModel: CacheableImageViewModel(dataService: dataService, url: url))
-        .frame(width: 60, height: 60)
-        .accessibilityHidden(true)
+            .frame(width: 60, height: 60)
+            .accessibilityHidden(true)
     }
 }
 
 #Preview {
     let recipe = Recipe(cuisine: "Testish", name: "test", photoUrlLarge: nil, photoUrlSmall: nil, uuid: "123", sourceUrl: nil, youtubeUrl: nil)
-    RecipeSummary(recipe: recipe, dataService: DataService(networkService: MockNetworkService()))
+    RecipeSummary(recipe: recipe, dataService: DataService(networkService: NetworkService(downloader: MockHTTPDataDownloader())))
 }
