@@ -110,4 +110,3 @@ extension RecipesView {
     let viewModel = RecipesViewModel(dataService: dataService)
     RecipesView(viewModel:viewModel)
 }
-

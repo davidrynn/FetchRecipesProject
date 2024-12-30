@@ -34,6 +34,7 @@ struct Recipe: Decodable, Identifiable {
         case youtubeUrl = "youtube_url"
     }
     
+    // Convenience init for testing/previews
     init(cuisine: String, name: String, photoUrlLarge: String?, photoUrlSmall: String?, uuid: String, sourceUrl: String?, youtubeUrl: String?) {
         self.cuisine = cuisine
         self.name = name

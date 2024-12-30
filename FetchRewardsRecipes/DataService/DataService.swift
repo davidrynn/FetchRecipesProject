@@ -11,7 +11,7 @@ protocol DataServicing {
     
     /// Fetches recipe models from selected endpoint
     /// - Parameter endpointSelection: Selects from 3 endpoints for the project: a list of recipes, empty result, and an error response.
-    /// - Returns: An array of `Recipe`s
+    /// - Returns: An array of `Recipe` models
     func recipes(from endpointSelection: ResponseTypeSelection) async throws -> [Recipe]
     
     /// Fetches image data

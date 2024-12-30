@@ -52,5 +52,4 @@ final class NetworkService: NetworkServicing {
         return try await downloader.httpData(from: url)
     }
     
-    
 }

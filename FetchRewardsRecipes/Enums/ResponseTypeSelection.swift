@@ -7,6 +7,7 @@
 import Foundation
 
 /// Helper enum for changing endpoints based on desired outcome
+/// In a production app urls would NOT be exposed like this.
 enum ResponseTypeSelection: String, CaseIterable, Identifiable {
     case allRecipes = "All Recipes"
     case empty = "Empty"
@@ -39,6 +40,7 @@ enum ResponseTypeSelection: String, CaseIterable, Identifiable {
         return self.rawValue
     }
     
+    // For downloader Mock
     var data: Data {
         switch self {
         case .allRecipes: return testData
