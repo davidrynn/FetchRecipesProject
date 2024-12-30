@@ -30,7 +30,6 @@ extension URLSession: HTTPDataDownloader {
               validStatus.contains(response.statusCode) else {
             throw FetchRecipeError.invalidResponse
         }
-        print("Making call")
         return data
     }
 }
