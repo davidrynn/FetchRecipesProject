@@ -21,6 +21,7 @@
 ### Weakest Part of the Project: What do you think is the weakest part of your project?
 #### UI and UI testing. Make take-away from the instructions were to focus on swift concurrency, caching/network efficiency, and unit testing, so I didn't spend too much time on UI. I didn't do any UI testing.
 #### Endpoint management, ideally would be handled by backend for both better maintainability - changes can be done in one place, and also potentially more secure.
+#### Localization and accessibility - both would be necessary for a production app.
 
 ### Additional Information: Is there anything else we should know? Feel free to share any insights or constraints you encountered.
 #### First, I always like to use the simplest architecture that is appropriate for a project because the more complex the code, the more difficult it will be for other engineers, or even myself, to do more work on later. MVVM tends to do the job well. In this specific project it's not entirely necessary - I could've just used the client and linked it directly to the view, but I used MVVM for demonstration purposes. I could've also not used injection and used an Enviromental Object, but I wanted to keep with MVVM.

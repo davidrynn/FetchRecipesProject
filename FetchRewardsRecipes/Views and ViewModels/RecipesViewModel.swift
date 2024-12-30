@@ -19,7 +19,7 @@ final class RecipesViewModel: ObservableObject {
     var title: String {
         return switch loadingState {
         case .loading:
-            ""
+            " " // Need space here - otherwise Nav title will appear to jump because it's empty when loading.
         case .loaded:
             "Recipes"
         case .error:
