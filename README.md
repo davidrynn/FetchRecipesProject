@@ -7,7 +7,7 @@
 #### Caching images. Since Apple has not yet made a caching image loader, I found this to take a lot of work - especially when trying to use Swift concurrency. There are many competing ideas online and I'm not completely familiar with any. I attempted to use what Apple has done in their demonstrations. A lot of solutions used dictionaries which are not necessarily thread safe, though may have been fine for the purposes of a simple app. Instead I used tasks.
 
 ### Time Spent: Approximately how long did you spend working on this project? How did you allocate your time? 
-####5 hours on-and-off. 
+#### 5 hours on-and-off. 
 
 ### Trade-offs and Decisions: Did you make any significant trade-offs in your approach?
 #### Using SwiftUI vs UIKit. For my prior job I used SwiftUI and felt very comfortable with it. I feel that it's better for state and using Apple's newer frameworks, and makes structured concurrency easier. However, with my current job, I only use UIKit, so it took me a little time to get back up to speed.
